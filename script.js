@@ -1,1 +1,3 @@
-console.log("I am working fine");
+Gameboard = {
+  gameboard: ["", "", "", "", "", "", "", "", ""],
+};
