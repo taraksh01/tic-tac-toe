@@ -91,3 +91,11 @@ start.addEventListener("click", () => {
   status.textContent = `Your marker is ${player1.marker}`;
   initializeGame();
 });
+
+function restartGame() {
+  currentPlayer = player2;
+  Gameboard.gameStarted = ["", "", "", "", "", "", "", "", ""];
+  status.textContent = `${currentPlayer.name}'s turn`;
+  cells.forEach((cell) => (cell.textContent = ""));
+  gameStarted = true;
+}
