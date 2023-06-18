@@ -13,3 +13,13 @@ function initializeGame() {
     cell.addEventListener("click", cellClicked);
   });
 }
+
+function cellClicked() {
+  const index = this.id;
+  console.log(index);
+  if (Gameboard.gameboard[index] !== "") {
+    console.log("cell not empty");
+  } else {
+    updateCell(this, index);
+  }
+}
