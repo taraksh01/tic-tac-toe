@@ -35,12 +35,41 @@ function cellClicked() {
   console.log(index);
   if (Gameboard.gameboard[index] !== "") {
     console.log("cell not empty");
-  } else {
-    updateCell(this, index);
   }
+  updateCell(this, index);
+  checkWinner();
 }
 
 function updateCell(cell, index) {
   Gameboard.gameboard[index] = currentPlayer.marker;
   cell.textContent = currentPlayer.marker;
+}
+
+function checkWinner() {
+  let gameWon = false;
+  for (let i = 0; i < 8; i++) {
+    const condition = Gameboard.winningCondition[i];
+    if (
+      Gameboard.gameboard[condition[0]] === "" ||
+      Gameboard.gameboard[condition[1]] === "" ||
+      Gameboard.gameboard[condition[2]] === ""
+    ) {
+      continue;
+    }
+    if (
+      Gameboard.gameboard[condition[0]] === Gameboard.gameboard[condition[1]] &&
+      Gameboard.gameboard[condition[1]] === Gameboard.gameboard[condition[2]]
+    ) {
+      gameWon = true;
+      break;
+    }
+  }
+
+  if (gameWon) {
+    console.log(`${currentPlayer.name} Won the game!!!!`);
+  } else if (!Gameboard.gameboard.includes("")) {
+    console.log("It's a draw");
+  } else {
+    changePlayer();
+  }
 }
