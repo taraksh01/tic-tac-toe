@@ -11,6 +11,9 @@ function Player(name, marker) {
 const player1 = Player("Player 1", "X");
 const player2 = Player("Player 2", "O");
 
+let currentPlayer = player2;
+initializeGame();
+
 function initializeGame() {
   cells.forEach((cell) => {
     cell.addEventListener("click", cellClicked);
@@ -25,4 +28,9 @@ function cellClicked() {
   } else {
     updateCell(this, index);
   }
+}
+
+function updateCell(cell, index) {
+  Gameboard.gameboard[index] = currentPlayer.marker;
+  cell.textContent = currentPlayer.marker;
 }
