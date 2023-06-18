@@ -3,3 +3,30 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+body {
+  font-family: cursive;
+}
+
+h1 {
+  text-align: center;
+  margin: 20px;
+}
+
+.game-container {
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  width: 240px;
+  margin: auto;
+}
+
+.cell {
+  height: 80px;
+  width: 80px;
+  border: 1px solid;
+  font-size: 40px;
+  text-align: center;
+  cursor: pointer;
+  line-height: 80px;
+  box-shadow: 0 0 0 1px;
+}
