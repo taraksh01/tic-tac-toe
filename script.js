@@ -8,6 +8,9 @@ function Player(name, marker) {
   return { name, marker };
 }
 
+const player1 = Player("Player 1", "X");
+const player2 = Player("Player 2", "O");
+
 function initializeGame() {
   cells.forEach((cell) => {
     cell.addEventListener("click", cellClicked);
