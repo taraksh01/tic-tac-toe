@@ -73,3 +73,7 @@ function checkWinner() {
     changePlayer();
   }
 }
+
+function changePlayer() {
+  currentPlayer = currentPlayer === player1 ? player2 : player1;
+}
