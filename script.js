@@ -35,7 +35,7 @@ function cellClicked() {
   const index = this.id;
   console.log(index);
   if (Gameboard.gameboard[index] !== "") {
-    console.log("cell not empty");
+    status.textContent = "Cell is not empty choose another cell";
   } else {
     updateCell(this, index);
     checkWinner();
@@ -68,9 +68,9 @@ function checkWinner() {
   }
 
   if (gameWon) {
-    console.log(`${currentPlayer.name} Won the game!!!!`);
+    status.textContent = `${currentPlayer.name} Won the game!!!!`;
   } else if (!Gameboard.gameboard.includes("")) {
-    console.log("It's a draw");
+    status.textContent = "It's a draw";
   } else {
     changePlayer();
   }
