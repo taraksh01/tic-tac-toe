@@ -35,9 +35,10 @@ function cellClicked() {
   console.log(index);
   if (Gameboard.gameboard[index] !== "") {
     console.log("cell not empty");
+  } else {
+    updateCell(this, index);
+    checkWinner();
   }
-  updateCell(this, index);
-  checkWinner();
 }
 
 function updateCell(cell, index) {
