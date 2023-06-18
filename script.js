@@ -1,5 +1,6 @@
 const cells = document.querySelectorAll(".cell");
 const start = document.querySelector(".start");
+const restart = document.querySelector(".restart");
 const status = document.querySelector(".game-status");
 let gameStarted = false;
 
@@ -15,6 +16,10 @@ Gameboard = {
     [0, 4, 8],
     [2, 4, 6],
   ],
+
+  setGameBoard(value) {
+    this.gameboard = value;
+  },
 };
 
 function Player(name, marker) {
@@ -43,8 +48,8 @@ function cellClicked() {
     return;
   } else {
     updateCell(this, index);
+    checkWinner();
   }
-  checkWinner();
 }
 
 function updateCell(cell, index) {
@@ -94,8 +99,10 @@ start.addEventListener("click", () => {
 
 function restartGame() {
   currentPlayer = player2;
-  Gameboard.gameStarted = ["", "", "", "", "", "", "", "", ""];
+  Gameboard.setGameBoard(["", "", "", "", "", "", "", "", ""]);
   status.textContent = `${currentPlayer.name}'s turn`;
   cells.forEach((cell) => (cell.textContent = ""));
   gameStarted = true;
 }
+
+restart.addEventListener("click", restartGame);
