@@ -1,4 +1,6 @@
 const cells = document.querySelectorAll(".cell");
+const start = document.querySelector(".start");
+const status = document.querySelector(".game-status");
 
 Gameboard = {
   gameboard: ["", "", "", "", "", "", "", "", ""],
@@ -22,7 +24,6 @@ const player1 = Player("Player 1", "X");
 const player2 = Player("Player 2", "O");
 
 let currentPlayer = player2;
-initializeGame();
 
 function initializeGame() {
   cells.forEach((cell) => {
@@ -78,3 +79,8 @@ function checkWinner() {
 function changePlayer() {
   currentPlayer = currentPlayer === player1 ? player2 : player1;
 }
+
+start.addEventListener("click", () => {
+  status.textContent = `Your marker is ${player1.marker}`;
+  initializeGame();
+});
