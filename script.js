@@ -1,6 +1,7 @@
 const cells = document.querySelectorAll(".cell");
 const start = document.querySelector(".start");
 const status = document.querySelector(".game-status");
+let gameStarted = false;
 
 Gameboard = {
   gameboard: ["", "", "", "", "", "", "", "", ""],
@@ -29,6 +30,8 @@ function initializeGame() {
   cells.forEach((cell) => {
     cell.addEventListener("click", cellClicked);
   });
+  gameStarted = true;
+  status.textContent = `${currentPlayer.name}'s turn`;
 }
 
 function cellClicked() {
@@ -78,6 +81,7 @@ function checkWinner() {
 
 function changePlayer() {
   currentPlayer = currentPlayer === player1 ? player2 : player1;
+  status.textContent = `${currentPlayer.name}'s turn`;
 }
 
 start.addEventListener("click", () => {
